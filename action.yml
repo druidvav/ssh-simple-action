@@ -1,21 +1,22 @@
 name: 'SSSH Simple Remote Run'
 description: 'Executing remote ssh commands'
-branding:
-  icon: 'terminal'
-  color: 'gray-dark'
-
 inputs:
   host:
     description: 'ssh host'
+  port:
+    description: 'ssh port'
+    default: 22
   username:
     description: 'ssh username'
   key_path:
     description: 'path of ssh private key'
   script:
     description: 'execute commands'
-
+branding:
+  icon: 'terminal'
+  color: 'gray-dark'
 runs:
   using: 'composite'
   steps:
-    - run: ssh -o StrictHostKeyChecking=no -i ${{ inputs.key_path }} ${{ inputs.username }}@${{ inputs.host }} "${{ inputs.script }}"
+    - run: ssh -p ${{ inputs.port }} -i ${{ inputs.key_path }} ${{ inputs.username }}@${{ inputs.host }} "${{ inputs.script }}"
       shell: bash
