@@ -1,0 +1,21 @@
+name: 'SSH remote run'
+description: 'Run shell scripts on remove host'
+branding:
+  icon: 'terminal'
+  color: 'gray-dark'
+
+inputs:
+  host:
+    description: 'ssh host'
+  username:
+    description: 'ssh username'
+  key_path:
+    description: 'path of ssh private key'
+  script:
+    description: 'execute commands'
+
+runs:
+  using: 'composite'
+  steps:
+    - run: ssh -i ${{ inputs.key_path }} ${{ inputs.username }}@${{ inputs.host }} "${{ inputs.script }}"
+      shell: bash
