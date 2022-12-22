@@ -17,5 +17,5 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: ssh -i ${{ inputs.key_path }} ${{ inputs.username }}@${{ inputs.host }} "${{ inputs.script }}"
+    - run: ssh -o StrictHostKeyChecking=no -i ${{ inputs.key_path }} ${{ inputs.username }}@${{ inputs.host }} "${{ inputs.script }}"
       shell: bash
