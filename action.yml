@@ -1,4 +1,4 @@
-name: 'SSSH Simple Remote Run'
+name: 'SSH Simple Remote Run'
 description: 'Executing remote ssh commands'
 inputs:
   host:
