@@ -1,5 +1,5 @@
-name: 'SSH remote run'
-description: 'Run shell scripts on remove host'
+name: 'SSSH Simple Remote Run'
+description: 'Executing remote ssh commands'
 branding:
   icon: 'terminal'
   color: 'gray-dark'
